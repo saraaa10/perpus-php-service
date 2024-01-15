@@ -10,10 +10,10 @@ services:
     container_name: perpus-db-mysql
     restart: always
     environment:
-      MYSQL_DATABASE: perpus
-      MYSQL_USER: perpus
-      MYSQL_PASSWORD: perpus
-      MYSQL_ROOT_PASSWORD: perpus
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     env_file:
       - .env
     networks:
