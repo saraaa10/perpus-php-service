@@ -1,0 +1,19 @@
+{
+    "name": "prana/perpus-php-service",
+    "description": "Perpus PHP with Clean Architecture",
+    "autoload": {
+        "psr-4": {
+            "Prana\\PerpusPhpService\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sara",
+            "email": "work.sara10@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.10",
+        "illuminate/database": "^10.40"
+    }
+}

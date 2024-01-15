@@ -1,0 +1,43 @@
+version: '3.9'
+
+networks:
+  perpus-network:
+    driver: bridge
+
+services:
+  db:
+    image: mysql:8.2.0
+    container_name: perpus-db-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: perpus
+      MYSQL_USER: perpus
+      MYSQL_PASSWORD: perpus
+      MYSQL_ROOT_PASSWORD: perpus
+    env_file:
+      - .env
+    networks:
+      - perpus-network
+    volumes:
+      - perpus-db-mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+  
+  admin:
+    image: adminer:4.8.1
+    container_name: perpus-adminer
+    restart: always
+    networks:
+      - perpus-network
+    ports:
+      - 8081:8080
+    depends_on:
+      - db
+    volumes:
+      - perpus-adminer:/sessions
+
+volumes:
+  perpus-adminer:
+    driver: local
+  perpus-db-mysql:
+    driver: local
